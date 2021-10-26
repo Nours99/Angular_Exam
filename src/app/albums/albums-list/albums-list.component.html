@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card" id="card">
+    <div class="card-header card-title d-flex justify-content-around">
+      <h4>Albums</h4>
+      <input [(ngModel)]="inputValue" (keydown.enter)="getAlbumByFilter()" placeholder=" Search...">
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-lg-3" *ngFor="let album of filteredAlbums" id="albums">
+        <div class="card m-3 d-flex align-items-stretch text-truncate">
+          <a [routerLink]="['/albums', album.id]">
+            <span class="badge">{{album.id}}</span>{{album.title}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

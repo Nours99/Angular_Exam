@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="card" id="card">
+    <div class="card-header card-title">
+      <h5>{{user?.id}} - {{user?.name}}</h5>
+    </div>
+    <div class="row row-eq-height">
+      <div class="col-6 d-flex align-items-stretch">
+        <div class="card w-100" id="email">
+          <div class="card-body">
+            <h6 class="card-title">E-mail</h6>
+            <p class="card-text">{{user?.email}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 d-flex align-items-stretch">
+        <div class="card w-100" id="address">
+          <div class="card-body">
+            <h6 class="card-title">Address</h6>
+            <p class="card-text">
+              {{user?.address.street}}<br>
+              {{user?.address.suite}}<br>
+              {{user?.address.city}}, {{user?.address.zipcode}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="albums-card">
+      <div class="card-header card-title">
+        <h5>Albums</h5>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-lg-3" *ngFor="let album of albums" id="albums">
+          <div class="card m-3 d-flex align-items-stretch text-truncate">
+            <a [routerLink]="['/albums', album?.id]">{{album?.title}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <a (click)="backClicked()" class="btn">Go back</a>
+    </div>
+  </div>
+</div>
+
